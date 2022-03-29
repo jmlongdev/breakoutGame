@@ -17,11 +17,13 @@ screen.title('Breakout')
 
 def handle_turtle_drag(x,y):
     t.ondrag(None)
-    t.goto(x, y)
+    t.goto(x, -270)
     t.ondrag(handle_turtle_drag)
 
-t = Turtle(shape='circle')
+t = Turtle(shape='square')
+t.setpos(0, -270)
 t.color('white')
+t.penup()
 t.speed(0)
 t.ondrag(handle_turtle_drag)
 
