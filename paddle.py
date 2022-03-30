@@ -13,9 +13,9 @@ class Paddle(Turtle):
         self.penup()
         self.color("white")
         self.speed(0)
-        # self.ondrag(self.goto)
 
-    def handle_turtle_drag(self, x,y):
+
+    def handle_turtle_drag(self, x, y):
         self.ondrag(None)
         self.goto(x, -270)
         self.ondrag(self.handle_turtle_drag)
