@@ -10,21 +10,13 @@ screen.bgcolor('black')
 screen.title('Breakout')
 # screen.tracer(0)
 
-# paddle = Paddle((0, 20))
-#
-# paddle.ondrag(paddle.goto)
 
 
-def handle_turtle_drag(x,y):
-    t.ondrag(None)
-    t.goto(x, -270)
-    t.ondrag(handle_turtle_drag)
+# places the paddle on the bottom
+paddle = Paddle((0, -270))
 
-t = Turtle(shape='square')
-t.setpos(0, -270)
-t.color('white')
-t.penup()
-t.speed(0)
-t.ondrag(handle_turtle_drag)
+#allows the paddle to move back and forth
+paddle.handle_turtle_drag(0, -270)
+
 
 screen.mainloop()

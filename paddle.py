@@ -8,16 +8,20 @@ class Paddle(Turtle):
     def __init__(self, position):
         super().__init__()
         self.shape("square")
-        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.shapesize(stretch_wid=1, stretch_len=6)
         self.penup()
         self.color("white")
-        self.goto(position)
+        self.setpos(position)
+        self.speed(0)
+        self.ondrag(self.goto)
 
-    def left(self):
-        new_x = self.xcor() -20
-        self.goto(new_x, self.xcor())
+    def handle_turtle_drag(self, x,y):
+        self.ondrag(None)
+        self.goto(x, -270)
+        self.ondrag(self.handle_turtle_drag)
 
-    def right(self):
-        new_x = self.xcor() + 20
-        self.goto(new_x, self.xcor())
 
+# def handle_turtle_drag(x, y):
+#     paddle.ondrag(None)
+#     paddle.goto(x, -270)
+#     paddle.ondrag(handle_turtle_drag)
