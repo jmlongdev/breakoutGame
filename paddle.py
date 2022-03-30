@@ -7,13 +7,13 @@ MOVE_DISTANCE = 20
 class Paddle(Turtle):
     def __init__(self, position):
         super().__init__()
+        self.setpos(position)
         self.shape("square")
         self.shapesize(stretch_wid=1, stretch_len=6)
         self.penup()
         self.color("white")
-        self.setpos(position)
         self.speed(0)
-        self.ondrag(self.goto)
+        # self.ondrag(self.goto)
 
     def handle_turtle_drag(self, x,y):
         self.ondrag(None)
