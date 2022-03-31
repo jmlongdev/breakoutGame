@@ -5,8 +5,10 @@ from score import Score
 from ball import Ball
 import random
 from block import Brick
+
 screen = Screen()
 screen.setup(width=900, height=600)
+screen.setworldcoordinates(0, 0, 12, 24)  # coordinates based on bricks
 screen.bgcolor('black')
 screen.title('Breakout')
 # screen.tracer(0)
@@ -21,14 +23,14 @@ score = Score()
 # Creates the ball
 ball = Ball()
 
-# row_1 = BlockRow(0,0)
-# row_1.create_block()
+bricks = Brick()
+bricks.create_bricks()
 
-bricks = []
-for y in range(25, 200, 25):
-    color = random.choice(COLORS)
-    for x in range(-420, 425, 50):
-        bricks.append(Brick(x, y))
+# bricks = []
+# for y in range(25, 200, 25):
+#     color = random.choice(COLORS)
+#     for x in range(-420, 425, 50):
+#         bricks.append(Brick(x, y))
         # bricks[-1].color = color
 
 
