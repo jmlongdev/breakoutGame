@@ -14,14 +14,15 @@ class Paddle(Turtle):
         self.color("white")
         self.speed(0)
 
-
     def handle_turtle_drag(self, x, y):
         self.ondrag(None)
         self.goto(x, -270)
         self.ondrag(self.handle_turtle_drag)
 
+    def l_move(self):
+        new_x = self.xcor() -30
+        self.goto(new_x, self.ycor())
 
-# def handle_turtle_drag(x, y):
-#     paddle.ondrag(None)
-#     paddle.goto(x, -270)
-#     paddle.ondrag(handle_turtle_drag)
+    def r_move(self):
+        new_x = self.xcor() + 30
+        self.goto(new_x, self.ycor())
