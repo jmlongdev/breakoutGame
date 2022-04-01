@@ -13,9 +13,9 @@ class Score(Turtle):
 
     def update_score_and_lives(self):
         self.clear()
-        self.goto(380, 210)
+        self.goto(380, 205)
         self.write(self.score, align="center", font=("Courier", 75, "normal"))
-        self.goto(-380, 210)
+        self.goto(-380, 205)
         self.write(self.lives, align="center", font=("Courier", 75, "normal"))
 
 

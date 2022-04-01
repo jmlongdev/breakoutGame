@@ -215,27 +215,34 @@
 #             self.tx = -250
 #         tracer(1)
 
+#
+# from turtle import Screen, Turtle
+# import random
+# from paddle import Paddle
+#
+# CURSOR_SIZE = 20
+# COLORS = ['red', 'blue', 'yellow', 'orange', 'green', 'purple']
+# screen = Screen()
+# screen.setup(600, 600)  # 12 x 24 bricks
+# screen.setworldcoordinates(0, -10, 12, 24)  # coordinates based on bricks
+# screen.bgcolor('black')
+#
+# paddle = Paddle()
+# paddle.handle_turtle_drag(0, -10)
+#
+# turtle = Turtle('square', visible=False)
+# turtle.penup()
+# turtle.speed('fastest')
+# turtle.shapesize(25 / CURSOR_SIZE, 50 / CURSOR_SIZE, 5)  # turn cursor into brick
+#
+# for y in range(12):
+#     turtle.setposition(-0.5 * (y % 2), y + 0.3)
+#     for x in range(13):  # baker's dozen due to brick skew
+#
+#         turtle.color('black', random.choice(COLORS))
+#         turtle.stamp()
+#         turtle.forward(1)
+#
+# screen.mainloop()
 
-from turtle import Screen, Turtle
-import random
-CURSOR_SIZE = 20
-COLORS = ['red', 'blue', 'yellow', 'orange', 'green', 'purple']
-screen = Screen()
-screen.setup(600, 600)  # 12 x 24 bricks
-screen.setworldcoordinates(0, 0, 12, 24)  # coordinates based on bricks
-screen.bgcolor('black')
 
-turtle = Turtle('square', visible=False)
-turtle.penup()
-turtle.speed('fastest')
-
-turtle.shapesize(25 / CURSOR_SIZE, 50 / CURSOR_SIZE, 5)  # turn cursor into brick
-
-for y in range(24):
-    turtle.setposition(-0.5 * (y % 2), y + 0.3)
-    for x in range(13):  # baker's dozen due to brick skew
-        turtle.color('black', random.choice(COLORS))
-        turtle.stamp()
-        turtle.forward(1)
-
-screen.mainloop()
