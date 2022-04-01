@@ -6,6 +6,7 @@ from score import Score
 from ball import Ball
 from brick import Bricks
 from lives import Lives
+from playsound import playsound
 
 screen = Screen()
 screen.setup(width=900, height=600)
@@ -37,14 +38,17 @@ while game_is_on:
     for i in range(len(brick.bricks_list)):
         if ball.distance(brick.bricks_list[i]) < 40:
             ball.bounce_y()
+            # playsound('bounce.wav')
             brick.destroy(i)
             score.score_point()
 
     if ball.xcor() > 430 or ball.xcor() < -430:
         ball.bounce_x()
+        # playsound('bounce.wav')
 
     if ball.ycor() > 280:
         ball.bounce_y()
+        # playsound('bounce.wav')
 
     if ball.ycor() < -280:
         ball.bounce_y()
@@ -61,6 +65,7 @@ while game_is_on:
 
     if ball.distance(paddle) < 60 and ball.ycor() > -270:
         ball.bounce_y()
+        # playsound('bounce.wav')
 
 screen.mainloop()
 
