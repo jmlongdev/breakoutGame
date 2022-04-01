@@ -12,7 +12,7 @@ class Score(Turtle):
 
     def update_score(self):
         self.clear()
-        self.goto(380, 205)
+        self.goto(370, 205)
         self.write(self.score, align="center", font=("Courier", 75, "normal"))
 
     def score_point(self):

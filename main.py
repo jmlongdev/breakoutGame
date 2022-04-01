@@ -4,7 +4,7 @@ import random
 from paddle import Paddle
 from score import Score
 from ball import Ball
-from block import Brick
+from brick import Bricks
 from lives import Lives
 
 screen = Screen()
@@ -21,20 +21,24 @@ paddle.handle_turtle_drag(0, -270)
 lives = Lives()
 score = Score()
 ball = Ball()
-bricks = Brick()
-bricks.create_bricks()
-
-
+brick = Bricks()
+# brick.create_bricks()
+brick.segment()
 screen.listen()
 screen.onkeypress(paddle.l_move, "Left")
 screen.onkeypress(paddle.r_move, "Right")
-
 
 game_is_on = True
 while game_is_on:
     screen.update()
     time.sleep(ball.move_speed)
     ball.move()
+
+    for i in range(len(brick.bricks_list)):
+        if ball.distance(brick.bricks_list[i]) < 40:
+            ball.bounce_y()
+            brick.destroy(i)
+            score.score_point()
 
     if ball.xcor() > 430 or ball.xcor() < -430:
         ball.bounce_x()
@@ -43,20 +47,20 @@ while game_is_on:
         ball.bounce_y()
 
     if ball.ycor() < -280:
+        ball.bounce_y()
         ball.reset_position()
-        lives.lives_remaining()
+        # lives.lives_remaining()
 
     if lives.lives == 0:
         print('Game Over')
         game_is_on = False
+    else:
+        if score.score > 1125:
+            game_is_on = False
+            print("You win!")
 
     if ball.distance(paddle) < 60 and ball.ycor() > -270:
         ball.bounce_y()
-
-    if abs(ball.xcor() - bricks.xcor()) < 20 and bricks.ycor() <= ball.ycor() <= bricks.ycor() + 10:
-        print("colided with the brick:")
-
-
 
 screen.mainloop()
 
