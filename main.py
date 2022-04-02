@@ -23,7 +23,7 @@ lives = Lives()
 score = Score()
 ball = Ball()
 brick = Bricks()
-# brick.create_bricks()
+
 brick.segment()
 screen.listen()
 screen.onkeypress(paddle.l_move, "Left")
@@ -31,10 +31,9 @@ screen.onkeypress(paddle.r_move, "Right")
 
 game_is_on = True
 while game_is_on:
-    screen.update()
     time.sleep(ball.move_speed)
     ball.move()
-
+    screen.update()
     for i in range(len(brick.bricks_list)):
         if ball.distance(brick.bricks_list[i]) < 40:
             ball.bounce_y()
@@ -51,7 +50,7 @@ while game_is_on:
         # playsound('bounce.wav')
 
     if ball.ycor() < -280:
-        ball.bounce_y()
+        # ball.bounce_y()
         ball.reset_position()
         # lives.lives_remaining()
 
@@ -63,7 +62,7 @@ while game_is_on:
             game_is_on = False
             print("You win!")
 
-    if ball.distance(paddle) < 60 and ball.ycor() > -270:
+    if ball.distance(paddle) < 50 and ball.ycor() > -250:
         ball.bounce_y()
         # playsound('bounce.wav')
 

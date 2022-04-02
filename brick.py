@@ -4,13 +4,11 @@ COLORS = ['red', 'blue', 'yellow', 'orange', 'green', 'purple']
 CURSOR_SIZE = 20
 
 BRICK_COORDS = []
-for y in range(-100, 200, 20):
-    # brick.goto(-425, y / 2.4)
+for y in range(-75, 225, 20):
     for x in range(-425, 450, 60):
         brick_coord = (x, y)
         BRICK_COORDS.append(brick_coord)
 print(len(BRICK_COORDS))
-# print(brick_coords)
 
 class Bricks(Turtle):
     def __init__(self):

@@ -20,9 +20,9 @@ class Paddle(Turtle):
         self.ondrag(self.handle_turtle_drag)
 
     def l_move(self):
-        new_x = self.xcor() -30
+        new_x = self.xcor() - 20
         self.goto(new_x, self.ycor())
 
     def r_move(self):
-        new_x = self.xcor() + 30
+        new_x = self.xcor() + 20
         self.goto(new_x, self.ycor())
